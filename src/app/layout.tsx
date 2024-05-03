@@ -8,16 +8,13 @@ const poppins = Poppins({
 
 export default function RootLayout({
   children,
-  account,
 }: Readonly<{
-  account: React.ReactNode;
   children: React.ReactNode;
 }>) {
   return (
     <html lang="en">
       <body className={poppins.className}>
         {children}
-        {account}
       </body>
     </html>
   );
