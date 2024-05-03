@@ -35,17 +35,17 @@ const Navbar = (props: Props) => {
             />
             <div className="flex gap-[24px] items-center text-[16px]">
                 {NavLinks.map((link) => (
-                    <Link 
-                    key={link.href} 
-                    href={link.href}
-                    className="font-[500] text-[16px]"
+                    <Link
+                        key={link.href}
+                        href={link.href}
+                        className="font-[500] text-[16px]"
                     >
                         {link.name}
                     </Link>
                 ))}
             </div>
             <div className="flex gap-[10px]">
-                <Link href={'/signup'} className="bg-[rgba(4,18,115,1)] text-white shadow-[-2px_2px_10px_1px_rgba(4,18,115,0.06)] px-[20px] py-[10px] rounded-[8px]">Sign up</Link>
+                <Link href={'/signup'} className="btn-primary">Sign up</Link>
                 <Link href={'/login'} className="border-[rgba(4,18,115,1)] border-[2px] shadow-[_-2px_2px_10px_1px_rgba(4,18,115,0.06)] px-[20px] py-[10px] rounded-[8px]">Login</Link>
             </div>
         </nav>

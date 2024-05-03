@@ -1,6 +1,5 @@
-import "./globals.css";
 import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
+import Sidebar from "@/components/Sidebar";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -15,9 +14,11 @@ export default function LandingLayout({
 }>) {
     return (
         <main className="w-full bg-[rgba(252,252,252,1)]">
-            <Navbar />
-            {children}
-            <div className="mt-[64px]"/>
+            <div className="flex gap-[48px] pt-[42px] px-[32px]">
+                <Sidebar/>
+                {children}
+            </div>
+            <div className="mt-[32px]" />
             <Footer />
         </main>
     );

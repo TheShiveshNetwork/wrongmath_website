@@ -5,19 +5,19 @@ type Props = {}
 const Footer = (props: Props) => {
     const SocialLinks = [
         {
-            link: "#",
+            link: "#1",
             image: "/assets/icons/instagram.svg",
         },
         {
-            link: "#",
+            link: "#2",
             image: "/assets/icons/facebook.svg",
         },
         {
-            link: "#",
+            link: "#3",
             image: "/assets/icons/twitter.svg",
         },
         {
-            link: "#",
+            link: "#4",
             image: "/assets/icons/linkedin.svg",
         },
     ]
@@ -25,17 +25,17 @@ const Footer = (props: Props) => {
         {
             name: "Products",
             items: [
-                { title: "Features", href: "#", icon: null },
-                { title: "Exams", href: "#", icon: null },
-                { title: "Updates", href: "#", icon: null },
+                { title: "Features", href: "#11", icon: null },
+                { title: "Exams", href: "#25", icon: null },
+                { title: "Updates", href: "#23", icon: null },
             ]
         },
         {
             name: "Company",
             items: [
-                { title: "About", href: "#", icon: null },
-                { title: "Blog", href: "#", icon: null },
-                { title: "Contact", href: "#", icon: null },
+                { title: "About", href: "#45", icon: null },
+                { title: "Blog", href: "#6", icon: null },
+                { title: "Contact", href: "#23", icon: null },
             ]
         },
         {
@@ -81,7 +81,7 @@ const Footer = (props: Props) => {
                             <h3 className="text-[24px] font-[600] tracking-[0.01em]">{footer.name}</h3>
                             {footer.items.map(item => (
                                 <a
-                                    key={item.href}
+                                    key={item.title}
                                     href={item.href ? item.href : "#"}
                                     className="flex gap-[8px] items-center leading-[21px] text-[14px] font-[400] opacity-80"
                                 >

@@ -1,33 +1,17 @@
-import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
+import { FeaturesContent, PracticeTests, StatData } from "@/constants/Hero";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
-    const StatData = [
-        {
-            number: 50,
-            text: "Resources",
-        },
-        {
-            number: 200,
-            text: "active students",
-        },
-        {
-            number: 25,
-            text: "PYQs",
-        },
-    ]
     return (
-        <div className="w-full bg-[rgba(252,252,252,1)]">
-            <Navbar />
+        <>
             <div className="mt-[163px] w-full md:pl-[186px] md:pr-[100px] flex items-start gap-[98px]">
                 <div>
-                    <h1 className="text-[52px] font-[600] text-[rgba(0,7,52,1)] w-full md:max-w-[550px] tracking-[-0.02em]">
+                    <h1 className="heading-primary w-full md:max-w-[550px]">
                         Excel in IIT-JEE: Your Path to Achievement
                     </h1>
                     <p className="mt-[42px] text-[24px] font-[300] text-[rgba(0,7,52,1)] w-full md:max-w-[500px] leading-[36px] mb-[24px]">Personalized PYQ Suggestions Tailored to Your Learning Style</p>
-                    <Link href={'/signup'} className="bg-[rgba(4,18,115,1)] text-white shadow-[-2px_2px_10px_1px_rgba(4,18,115,0.06)] px-[20px] py-[10px] rounded-[8px] h-[48px]">Sign up</Link>
+                    <Link href={'/signup'} className="btn-primary h-[48px]">Get started</Link>
                     <div className="mt-[146px] flex gap-[48px]">
                         {StatData.map((stat, index) => (
                             <>
@@ -47,7 +31,51 @@ export default function Home() {
                     alt="Hero1"
                 />
             </div>
-            <Footer />
-        </div>
+            <div className="mt-[150px] md:px-[106px]">
+                <h1 className="heading-primary text-center">Practice Tests</h1>
+                <div className="mt-[42px] w-full flex flex-wrap justify-center gap-[32px]">
+                    {PracticeTests.map(item => (
+                        <div key={item.heading} className="relative max-w-[388px] w-1/3 min-h-[620px] shadow-[-2px_2px_10px_1px_rgba(4,18,115,0.06)] p-[24px] rounded-[12px] flex flex-col gap-[12px]">
+                            <Image
+                                src={item.img}
+                                height={231}
+                                width={340}
+                                alt={item.heading}
+                            />
+                            <h1 className="heading-secondary">{item.heading}</h1>
+                            <p className="text-[14px] font-[300] leading-[21px] max-w-[323px]">{item.description}</p>
+                            <Link href={item.link} className="absolute w-[calc(100%-48px)] bottom-[24px] btn-primary flex gap-[7px] justify-center">
+                                View
+                                <Image
+                                    src={"/assets/icons/ext_link1.svg"}
+                                    height={14}
+                                    width={14}
+                                    alt={item.heading}
+                                />
+                            </Link>
+                        </div>
+                    ))}
+                </div>
+            </div>
+            <div className="mt-[64px] md:px-[106px]">
+                <h1 className="heading-primary text-center">Features</h1>
+                <div className="mt-[42px] w-full flex flex-col justify-center gap-[32px]">
+                    {FeaturesContent.map((content, index) => (
+                        <div key={`feature-${index}`} className={`flex flex-col ${(index + 1) % 2 === 0 ? "md:flex-row-reverse" : "md:flex-row"} items-start justify-between`}>
+                            <div className="max-w-[854px]">
+                                <h1 className="heading-tertiary">{content.heading}s</h1>
+                                <p className="font-[300] text-[24px] leading-[36px]">{content.description}</p>
+                            </div>
+                            <Image
+                                src={content.img}
+                                height={276}
+                                width={340}
+                                alt={content.heading}
+                            />
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </>
     );
 }
