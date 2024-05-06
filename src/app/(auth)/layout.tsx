@@ -1,6 +1,3 @@
-import "./globals.css";
-import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -10,18 +7,12 @@ export const metadata: Metadata = {
 
 export default function LandingLayout({
     children,
-    authModal,
 }: Readonly<{
     children: React.ReactNode;
-    authModal: React.ReactNode;
 }>) {
     return (
         <main className="w-full bg-[rgba(252,252,252,1)]">
-            <Navbar />
             {children}
-            {authModal}
-            <div className="mt-[64px]"/>
-            <Footer />
         </main>
     );
 }
