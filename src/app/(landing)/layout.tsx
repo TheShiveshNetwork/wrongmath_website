@@ -10,16 +10,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
     children,
-    authModal,
 }: Readonly<{
     children: React.ReactNode;
-    authModal: React.ReactNode;
 }>) {
     return (
         <main className="w-full bg-[rgba(252,252,252,1)]">
             <Navbar />
             {children}
-            {authModal}
             <div className="mt-[64px]"/>
             <Footer />
         </main>
