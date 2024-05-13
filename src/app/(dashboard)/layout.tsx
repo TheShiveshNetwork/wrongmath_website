@@ -1,5 +1,6 @@
+import './globals.css';
 import Footer from "@/components/Footer";
-import Sidebar from "@/components/Sidebar";
+import Sidebar from "@/components/dashboard/Sidebar";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
