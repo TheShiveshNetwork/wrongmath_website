@@ -1,9 +1,12 @@
+import LoginForm from "@/components/forms/LoginForm"
 
 type Props = {}
 
 const Login = (props: Props) => {
     return (
-        <div>Login</div>
+        <div>
+            <LoginForm />
+        </div>
     )
 }
 

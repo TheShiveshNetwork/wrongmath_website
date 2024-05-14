@@ -1,6 +1,6 @@
 "use client"
 import { Dispatch, SetStateAction, useEffect } from "react"
-import SignUpForm from "../forms/SignUpForm"
+import LoginForm from "../forms/LoginForm"
 import { disablePageScroll, enablePageScroll } from "scroll-lock"
 
 type Props = {
@@ -8,7 +8,7 @@ type Props = {
     setModalOpen: Dispatch<SetStateAction<boolean>>
 }
 
-const SignUpModal = ({ modalOpen, setModalOpen }: Props) => {
+const LoginModal = ({ modalOpen, setModalOpen }: Props) => {
     useEffect(() => {
         modalOpen ? disablePageScroll() : enablePageScroll();
     }, [modalOpen])
@@ -18,10 +18,10 @@ const SignUpModal = ({ modalOpen, setModalOpen }: Props) => {
             onClick={() => setModalOpen(false)}
         >
             <div className="bg-white max-w-[795px] max-h-[806px] rounded-[24px] px-[133px] py-[33px]" onClick={e => e.stopPropagation()}>
-                <SignUpForm />
+                <LoginForm />
             </div>
         </div>
     )
 }
 
-export default SignUpModal
+export default LoginModal

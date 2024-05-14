@@ -1,9 +1,8 @@
 import Image from "next/image"
-
 type Props = {}
 
-const SignUpForm = (props: Props) => {
-    return (
+const LoginForm = (props: Props) => {
+    return (<div className="">
         <div className="w-[528px] flex flex-col gap-[40px]">
             <div className="flex flex-col items-center">
                 <Image
@@ -24,8 +23,7 @@ const SignUpForm = (props: Props) => {
             <div >
                 <label htmlFor="email_input" className="block text-gray-400 py-1 font-medium text-[16px] leading-[24px]">Your email</label>
                 <input className="w-[528px] h-[38px] border-solid border border-gray-300 rounded-[10px]  mb-3" type="text" id="email_input " name="email" />
-                <label htmlFor="passward" className="block  text-gray-400 py-1 font-medium text-[16px] leading-[24px]">Passward</label>
-                <input className="w-[528px] h-[38px] border-solid border border-gray-300 rounded-[10px] " type="text" id="passward " name="passward" />
+              
             </div>
 
 
@@ -40,7 +38,8 @@ const SignUpForm = (props: Props) => {
             </button>
             <button className="bg-[rgba(52,78,173,1)] text-white font-[500] text-[20px] tracking-[0.01em] w-full h-[54px] rounded-[40px] disabled:opacity-[25%] disabled:bg-[rgba(17,17,17,1)]">Sign up</button>
         </div>
+        </div>
     )
 }
 
-export default SignUpForm
+export default LoginForm
