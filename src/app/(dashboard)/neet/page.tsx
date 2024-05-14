@@ -1,4 +1,4 @@
-import AccordionSection from "../../../../sections/ja/AccordionSection"
+import AccordionSection from "@/sections/jm/AccordionSection"
 
 type Props = {}
 
