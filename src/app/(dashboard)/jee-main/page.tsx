@@ -1,4 +1,4 @@
-import AccordionSection from "@/sections/jm/AccordionSection"
+import AccordionSection from "@/components/dashboard/jm/AccordionSection"
 
 type Props = {}
 

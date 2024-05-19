@@ -1,9 +1,12 @@
+import SettingsComponent from "@/components/dashboard/settings/SettingsComponent"
 
 type Props = {}
 
 const SettingsPage = (props: Props) => {
     return (
-        <div>SettingsPage</div>
+        <div className="w-full">
+            <SettingsComponent />
+        </div>
     )
 }
 

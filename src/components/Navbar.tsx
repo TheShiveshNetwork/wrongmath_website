@@ -25,7 +25,7 @@ const Navbar = (props: Props) => {
         },
         {
             name: "JEE(M)",
-            href: "/jee-mains",
+            href: "/jee-main",
         },
         {
             name: "JEE(A)",
@@ -38,12 +38,14 @@ const Navbar = (props: Props) => {
     ]
     return (
         <nav className="w-full shadow-[-2px_2px_10px_1px_rgba(4,18,115,0.06)] h-[80px] flex items-center justify-between md:px-[150px]">
-            <Image
-                src={"/assets/logo.svg"}
-                height={48}
-                width={132}
-                alt="Wrongmath"
-            />
+            <Link href={"/"}>
+                <Image
+                    src={"/assets/logo.svg"}
+                    height={48}
+                    width={132}
+                    alt="Wrongmath"
+                />
+            </Link>
             <div className="flex gap-[24px] items-center text-[16px]">
                 {NavLinks.map((link) => (
                     <Link
