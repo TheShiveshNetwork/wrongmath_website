@@ -1,5 +1,6 @@
 import './globals.css';
 import Footer from "@/components/Footer";
+import Navbar from '@/components/dashboard/Navbar';
 import Sidebar from "@/components/dashboard/Sidebar";
 import type { Metadata } from "next";
 
@@ -15,6 +16,7 @@ export default function RootLayout({
 }>) {
     return (
         <main className="w-full bg-[rgba(252,252,252,1)]">
+            <Navbar />
             <div className="flex gap-[48px] pt-[42px] px-[32px]">
                 <Sidebar/>
                 {children}

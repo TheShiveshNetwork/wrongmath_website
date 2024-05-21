@@ -18,6 +18,11 @@
     letter-spacing: -0.02em;
     color: rgba(0, 7, 52, 1);
 }
+@media (max-width: 540px) {
+    .heading-primary {
+        font-size: 32px;
+    }
+}
 .paragraph-1 {
     font-size: 24px;
     font-weight: 400;

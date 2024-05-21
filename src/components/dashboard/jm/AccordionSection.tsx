@@ -73,22 +73,22 @@ const AccordionSection = (props: Props) => {
         <>
             <div className="mt-[32px]">
                 <h2 className="text-blue font-[600] text-[32px] -tracking-[0.02em]">Subjects</h2>
-                <div className="mt-[24px] flex gap-[20px]">
+                <div className="mt-[24px] flex flex-wrap gap-[20px]">
                     <div
                         onClick={() => setSelectedSubject(0)}
-                        className={`box-shadow rounded-[12px] ${selectedSubject === 0 ? "bg-[var(--blue-primary)] text-white" : "text-primary"} p-[12px_24px] font-[600] text-[24px] leading-[36px] tracking-[0.01em] cursor-pointer transition-all`}
+                        className={`box-shadow rounded-[12px] ${selectedSubject === 0 ? "bg-[var(--blue-primary)] text-white" : "text-primary"} p-[6px_12px] md:p-[12px_24px] font-[600] text-[16px] md:text-[24px] leading-[36px] tracking-[0.01em] cursor-pointer transition-all`}
                     >
                         Physics
                     </div>
                     <div
                         onClick={() => setSelectedSubject(1)}
-                        className={`box-shadow rounded-[12px] ${selectedSubject === 1 ? "bg-[var(--blue-primary)] text-white" : "text-primary"} p-[12px_24px] font-[600] text-[24px] leading-[36px] tracking-[0.01em] cursor-pointer transition-all`}
+                        className={`box-shadow rounded-[12px] ${selectedSubject === 1 ? "bg-[var(--blue-primary)] text-white" : "text-primary"} p-[6px_12px] md:p-[12px_24px] font-[600] text-[16px] md:text-[24px] leading-[36px] tracking-[0.01em] cursor-pointer transition-all`}
                     >
                         Chemistry
                     </div>
                     <div
                         onClick={() => setSelectedSubject(2)}
-                        className={`box-shadow rounded-[12px] ${selectedSubject === 2 ? "bg-[var(--blue-primary)] text-white" : "text-primary"} p-[12px_24px] font-[600] text-[24px] leading-[36px] tracking-[0.01em] cursor-pointer transition-all`}
+                        className={`box-shadow rounded-[12px] ${selectedSubject === 2 ? "bg-[var(--blue-primary)] text-white" : "text-primary"} p-[6px_12px] md:p-[12px_24px] font-[600] text-[16px] md:text-[24px] leading-[36px] tracking-[0.01em] cursor-pointer transition-all`}
                     >
                         Mathematics
                     </div>

@@ -50,9 +50,9 @@ const Footer = (props: Props) => {
         },
     ]
     return (
-        <footer className="flex flex-col gap-[32px] bg-[rgba(4,18,115,1)] md:px-[112px] py-[40px]">
-            <div className="flex gap-[137px] w-full">
-                <div className="flex flex-col gap-[137px]">
+        <footer className="flex flex-col gap-[32px] bg-[rgba(4,18,115,1)] md:px-[112px] py-[40px] px-4">
+            <div className="flex flex-col items-center md:items-start md:flex-row gap-4 md:gap-[137px] w-full">
+                <div className="flex flex-col md:gap-[137px]">
                     <div>
                         <Image
                             src={"/assets/logo_light.svg"}
@@ -75,7 +75,7 @@ const Footer = (props: Props) => {
                         </div>
                     </div>
                 </div>
-                <div className="flex w-full justify-between text-white">
+                <div className="flex flex-col gap-4 md:flex-row w-full justify-between text-white">
                     {FooterLinks.map((footer, index) => (
                         <div key={`footer-${index}`} className="flex flex-col gap-[16px] max-w-[248px]">
                             <h3 className="text-[24px] font-[600] tracking-[0.01em]">{footer.name}</h3>
@@ -101,8 +101,8 @@ const Footer = (props: Props) => {
             <div className="bg-[rgba(186,214,235,1)] h-[1px]" />
             <div className="flex justify-between text-white">
                 <div>© 2024 JustPYQs - All rights reserved</div>
-                <div className="flex gap-[16px]">
-                    <a href="#">Terms of Service</a> <span className="text-[rgba(186,214,235,1)]">|</span> <a href="#">Privacy Policy</a>
+                <div className="flex flex-col md:flex-row gap-[16px]">
+                    <a href="#">Terms of Service</a> <span className="text-[rgba(186,214,235,1)] hidden md:block">|</span> <a href="#">Privacy Policy</a>
                 </div>
             </div>
         </footer>

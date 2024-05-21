@@ -17,7 +17,7 @@ export default function RootLayout({
         <main className="w-full bg-[rgba(252,252,252,1)]">
             <Navbar />
             {children}
-            <div className="mt-[64px]"/>
+            <div className="mt-[64px]" />
             <Footer />
         </main>
     );
