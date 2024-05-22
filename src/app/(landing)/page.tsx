@@ -12,7 +12,7 @@ export default function Home() {
                     </h1>
                     <p className="mt-[42px] text-[24px] font-[300] text-center md:text-left text-[rgba(0,7,52,1)] w-full md:max-w-[500px] leading-[36px] mb-[24px]">Personalized PYQ Suggestions Tailored to Your Learning Style</p>
                     <Link href={'/signup'} className="btn-primary h-[48px] w-[130px]">Get started</Link>
-                    <div className="mt-[146px] flex gap-[48px]">
+                    <div className="mt-[146px] flex gap-8 md:gap-[48px]">
                         {StatData.map((stat, index) => (
                             <>
                                 <div key={stat.text} className="flex flex-col gap-[16px] items-center justify-center">

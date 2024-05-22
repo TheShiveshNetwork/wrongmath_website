@@ -1,6 +1,11 @@
 "use client"
 import Image from "next/image";
 import { useState } from "react";
+import AccountInfo from "./AccountInfo";
+import Notifications from "./Notifications";
+import Security from "./Security";
+import ThemePreferences from "./ThemePreferences";
+import DataManagement from "./DataManagement";
 
 type Props = {}
 
@@ -10,12 +15,12 @@ const SettingsComponent = (props: Props) => {
     return (
         <div className="w-full">
             <div className="w-full flex gap-[64px]">
-                <div className="flex flex-col gap-[16px] w-full max-w-[354px]">
-                <input
-                    type="text"
-                    className="w-full mb-[16px] p-[16px_10px_16px_45px] bg-[url('/assets/dashboard/icons/search.svg')] bg-no-repeat bg-[center_left_10px] rounded-[12px] box-shadow font-[300] text-[14px] outline-none"
-                    placeholder="Search"
-                />
+                <div className="flex flex-col gap-[16px] w-full md:max-w-[354px]">
+                    <input
+                        type="text"
+                        className="w-full mb-[16px] p-[16px_10px_16px_45px] bg-[url('/assets/dashboard/icons/search.svg')] bg-no-repeat bg-[center_left_10px] rounded-[12px] box-shadow font-[300] text-[14px] outline-none"
+                        placeholder="Search"
+                    />
                     <div
                         onClick={() => setActiveSetting(0)}
                         className={`box-shadow rounded-[12px] p-[24px] border-[2px] 
@@ -26,6 +31,11 @@ const SettingsComponent = (props: Props) => {
                             Update personal details like name, email, password
                         </p>
                     </div>
+                    {activeSetting === 0 && (
+                        <div className="md:hidden block w-full md:mt-[86px]">
+                            <AccountInfo />
+                        </div>
+                    )}
                     <div
                         onClick={() => setActiveSetting(1)}
                         className={`box-shadow rounded-[12px] p-[24px] border-[2px] 
@@ -36,6 +46,11 @@ const SettingsComponent = (props: Props) => {
                             Manage email and notification preferences
                         </p>
                     </div>
+                    {activeSetting === 1 && (
+                        <div className="md:hidden block w-full md:mt-[86px]">
+                            <Notifications />
+                        </div>
+                    )}
                     <div
                         onClick={() => setActiveSetting(2)}
                         className={`box-shadow rounded-[12px] p-[24px] border-[2px] 
@@ -46,6 +61,11 @@ const SettingsComponent = (props: Props) => {
                             Manage two-factor authentication, login sessions
                         </p>
                     </div>
+                    {activeSetting === 2 && (
+                        <div className="md:hidden block w-full md:mt-[86px]">
+                            <Security />
+                        </div>
+                    )}
                     <div
                         onClick={() => setActiveSetting(3)}
                         className={`box-shadow rounded-[12px] p-[24px] border-[2px] 
@@ -56,6 +76,11 @@ const SettingsComponent = (props: Props) => {
                             Choose between light or dark mode for the interface
                         </p>
                     </div>
+                    {activeSetting === 3 && (
+                        <div className="md:hidden block w-full md:mt-[86px]">
+                            <ThemePreferences />
+                        </div>
+                    )}
                     <div
                         onClick={() => setActiveSetting(4)}
                         className={`box-shadow rounded-[12px] p-[24px] border-[2px] 
@@ -66,27 +91,28 @@ const SettingsComponent = (props: Props) => {
                             Control data sharing, export data, or delete account
                         </p>
                     </div>
-                </div>
-                <div className="w-full md:mt-[86px]">
-                    <div className="box-shadow p-[24px] flex justify-around items-center rounded-[12px] mb-[24px]">
-                        <div className="flex gap-[10px] items-center">
-                            <Image
-                                src={"/assets/temp/profine_pic.svg"}
-                                height={80}
-                                width={80}
-                                alt="profile"
-                                className={"rounded-full"}
-                            />
-                            <div className="">
-                                <h3 className="text-primary font-[600] text-[20px] leading-[30px] tracking-[0.01em]">Upload Photo</h3>
-                                <p className="text-primary font-[300] text-[12px] leading-[18px]">Profile pic</p>
-                            </div>
+                    {activeSetting === 4 && (
+                        <div className="md:hidden block w-full md:mt-[86px]">
+                            <DataManagement />
                         </div>
-                        <div className="text-primary box-shadow cursor-pointer rounded-[6px] p-[6px_12px] border-[1px] border-[var(--blue-primary)]">Update</div>
-                    </div>
-                    <div className="box-shadow p-[48px] rounded-[12px]">
-                        <h3 className="text-primary font-[600] text-[24px] leading-[36px] tracking-[0.01em]">Change User Information</h3>
-                    </div>
+                    )}
+                </div>
+                <div className="hidden md:block w-full md:mt-[86px]">
+                    {activeSetting === 0 && (
+                        <AccountInfo />
+                    )}
+                    {activeSetting === 1 && (
+                        <Notifications />
+                    )}
+                    {activeSetting === 2 && (
+                        <Security />
+                    )}
+                    {activeSetting === 3 && (
+                        <ThemePreferences />
+                    )}
+                    {activeSetting === 4 && (
+                        <DataManagement />
+                    )}
                 </div>
             </div>
         </div>

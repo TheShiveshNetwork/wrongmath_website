@@ -2,18 +2,25 @@
 
 import Image from "next/image"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
 import { disablePageScroll, enablePageScroll } from "scroll-lock"
 
 type Props = {}
 
 const Navbar = (props: Props) => {
+    const pathname = usePathname();
     const [navToggle, setNavToggle] = useState<boolean>(false);
+    const [examsAccordionOpen, setExamsAccordionOpen] = useState<boolean>(false);
 
     useEffect(() => {
         navToggle ? disablePageScroll() : enablePageScroll();
         navToggle ? disablePageScroll() : enablePageScroll();
     }, [navToggle])
+
+    useEffect(() => {
+        setNavToggle(false);
+    }, [pathname])
 
     const NavLinks = [
         {
@@ -63,17 +70,97 @@ const Navbar = (props: Props) => {
             </div>
 
             {navToggle && (
-                <div className="fixed w-full h-screen top-[80px] left-0 bg-white flex flex-col items-center justify-center gap-10">
-                    <div className="flex flex-col gap-[24px] items-center text-[16px]">
-                        {NavLinks.map((link) => (
-                            <Link
-                                key={link.href}
-                                href={link.href}
-                                className="font-[500] text-[24px]"
-                            >
-                                {link.name}
-                            </Link>
-                        ))}
+                <div className="fixed animate-[sildeInFromTop_0.3s_ease-in-out] py-[10px] w-full bg-[var(--blue-primary)] top-0 left-0 text-white flex flex-col">
+                    <div className="flex justify-between px-[25px]">
+                        <Image
+                            src={"/assets/logo2.svg"}
+                            height={48}
+                            width={48}
+                            alt="menu"
+                        />
+                        <Image
+                            src={"/assets/icons/closeX.svg"}
+                            height={32}
+                            width={32}
+                            alt="menu"
+                            onClick={() => setNavToggle(false)}
+                        />
+                    </div>
+                    <div className="flex flex-col px-[20px] text-[16px] gap-[10px]">
+                        <div className="flex justify-between px-[24px] items-center border-[1px] border-[white] rounded-[12px] h-[66px] my-[16px]">
+                            <div className="flex gap-[10px]">
+                                <Image
+                                    src={"/assets/temp/profine_pic.svg"}
+                                    height={42}
+                                    width={42}
+                                    alt="avatar"
+                                    className="rounded-full"
+                                />
+                                <div>
+                                    <h3 className="font-[500] text-[18px]">Gaurav</h3>
+                                    <p className="font-[300] text-[14px]">Profile</p>
+                                </div>
+                            </div>
+                            <Image
+                                src={"/assets/dashboard/icons/right-chevron.svg"}
+                                height={12}
+                                width={12}
+                                alt="avatar"
+                                className="rounded-full"
+                            />
+                        </div>
+                        <Link
+                            href={"/dashboard"}
+                            className="w-full h-[56px] font-[500] text-[20px] flex items-center gap-[10px]"
+                        >
+                            <Image
+                                src={"/assets/icons/House.svg"}
+                                height={32}
+                                width={32}
+                                alt="menu"
+                            />
+                            Home
+                        </Link>
+                        <div
+                            onClick={() => setExamsAccordionOpen(!examsAccordionOpen)}
+                            className="w-full h-[56px] font-[500] text-[20px] flex items-center justify-between"
+                        >
+                            <div className="flex gap-[10px]">
+                                <Image
+                                    src={"/assets/icons/Exams.svg"}
+                                    height={32}
+                                    width={32}
+                                    alt="menu"
+                                />
+                                Exams
+                            </div>
+                            <Image
+                                src={"/assets/dashboard/icons/down_icon.svg"}
+                                height={12}
+                                width={12}
+                                alt="down"
+                                className="rounded-full invert"
+                            />
+                        </div>
+                        {examsAccordionOpen && (
+                            <div className="flex flex-col">
+                                <Link href={"/jee-main"} className="w-full h-[33px]">JEE (M)</Link>
+                                <Link href={"/jee-advanced"} className="w-full h-[33px]">JEE (A)</Link>
+                                <Link href={"/neet"} className="w-full h-[33px]">NEET</Link>
+                            </div>
+                        )}
+                        <Link
+                            href={"/settings"}
+                            className="w-full h-[56px] font-[500] text-[20px] flex items-center gap-[10px]"
+                        >
+                            <Image
+                                src={"/assets/icons/Settings.svg"}
+                                height={32}
+                                width={32}
+                                alt="menu"
+                            />
+                            Settings
+                        </Link>
                     </div>
                 </div>
             )}

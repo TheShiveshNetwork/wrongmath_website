@@ -76,12 +76,12 @@ const Sidebar = (props: Props) => {
                         )}
                     </div>
                     {examsAccordionOpen && (
-                    <div className="flex flex-col text-center">
-                        <Link href={"/jee-main"}>JEE (M)</Link>
-                        <Link href={"/jee-advanced"}>JEE (A)</Link>
-                        <Link href={"/neet"}>NEET</Link>
-                    </div>
-                )}
+                        <div className="flex flex-col text-center">
+                            <Link href={"/jee-main"}>JEE (M)</Link>
+                            <Link href={"/jee-advanced"}>JEE (A)</Link>
+                            <Link href={"/neet"}>NEET</Link>
+                        </div>
+                    )}
                     <Link href={"/settings"} className={`w-full mt-[16px] ${pathname === "settings" && "bg-[rgba(186,214,235,1)]"} ${collapseSidebar ? "rounded-full h-[40px] w-[40px]" : "rounded-[8px] h-[47px]"} flex gap-[8px] items-center justify-center text-primary cursor-pointer`}>
                         <Image
                             src={"/assets/dashboard/icons/settings.svg"}
