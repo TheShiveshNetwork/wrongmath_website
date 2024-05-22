@@ -100,8 +100,10 @@ const Navbar = (props: Props) => {
                     </div>
                     <div className="flex flex-col gap-4">
                         {/* <Link href={'/signup'} className="btn-primary">Sign up</Link> */}
-                        <div className="btn-primary cursor-pointer w-[120px]" onClick={() => setSignUpModalOpen(true)}>Sign up</div>
-                        <div className="border-[rgba(4,18,115,1)] w-[120px] cursor-pointer border-[2px] shadow-[_-2px_2px_10px_1px_rgba(4,18,115,0.06)] px-[20px] py-[10px] rounded-[8px]" onClick={() => setLoginModalOpen(true)}>Login</div>
+                        <div className="hidden md:block btn-primary cursor-pointer" onClick={() => setSignUpModalOpen(true)}>Sign up</div>
+                        <div className="hidden md:block border-[rgba(4,18,115,1)] cursor-pointer border-[2px] shadow-[_-2px_2px_10px_1px_rgba(4,18,115,0.06)] px-[20px] py-[10px] rounded-[8px]" onClick={() => setLoginModalOpen(true)}>Login</div>
+                        <Link href={"/signup"} className="block md:hidden btn-primary cursor-pointer" onClick={() => setSignUpModalOpen(true)}>Sign up</Link>
+                        <Link href={"/login"} className="block md:hidden border-[rgba(4,18,115,1)] cursor-pointer border-[2px] shadow-[_-2px_2px_10px_1px_rgba(4,18,115,0.06)] px-[20px] py-[10px] rounded-[8px]" onClick={() => setLoginModalOpen(true)}>Login</Link>
                     </div>
                 </div>
             )}

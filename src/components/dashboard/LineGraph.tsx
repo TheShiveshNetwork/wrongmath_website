@@ -22,7 +22,7 @@ const LineGraph = () => {
         ],
     };
 
-    const options = {
+    const desktopOptions = {
         scales: {
             x: {
                 title: {
@@ -85,15 +85,83 @@ const LineGraph = () => {
         },
     };
 
+    const phoneOptions = {
+        scales: {
+            x: {
+                title: {
+                    display: true,
+                    text: "No of Days Active",
+                    font: {
+                        size: 16,
+                        weight: 700,
+                    }
+                },
+                label: "No of Questions Answered",
+                grid: {
+                    display: true,
+                },
+                labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+                ticks: {
+                    color: "white",
+                    font: {
+                        family: "Nunito",
+                        size: 12,
+                    },
+                },
+            },
+            y: {
+                title: {
+                    display: true,
+                    text: "No of Questions Answered",
+                    font: {
+                        size: 16,
+                        weight: 700,
+                    }
+                },
+                grid: {
+                    display: false,
+                },
+                border: {
+                    display: false,
+                },
+                min: 0,
+                max: 100,
+                ticks: {
+                    stepSize: 50,
+                    color: "rgba(0,7,52,1)",
+                    font: {
+                        size: 16,
+                        weight: 700,
+                    },
+                },
+            },
+        },
+        maintainAspectRatio: false,
+        responsive: true,
+        plugins: {
+            legend: {
+                display: false,
+            },
+            title: {
+                display: false,
+            },
+        },
+    };
+
     const graphStyle = {
         minHeight: "400px",
         width: "100%",
     };
 
     return (
-        <div style={graphStyle}>
-            <Line id="home" options={options} data={canvasData} />
-        </div>
+        <>
+            <div className="hidden md:block" style={graphStyle}>
+                <Line id="home" options={desktopOptions} data={canvasData} />
+            </div>
+            <div className="block md:hidden" style={graphStyle}>
+                <Line id="home" options={phoneOptions} data={canvasData} />
+            </div>
+        </>
     );
 };
 

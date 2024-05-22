@@ -12,17 +12,17 @@ const Security = (props: Props) => {
                     Manage your account security settings below to keep your account safe and secure.
                 </p>
             </div>
-            <div className="w-full flex items-center gap-[8px]">
+            <div
+                className="w-full flex items-center justify-between gap-[8px] cursor-pointer"
+                onClick={() => setTwoFactorChecked(!twoFactorChecked)}
+            >
                 <div className="max-w-[274px]">
                     <h3 className="text-primary font-[600] text-[24px] leading-[36px] tracking-[0.01em]">Two-Factor Authentication (2FA)</h3>
                     <p className="text-primary font-[300] text-[14px]">
                         Enable two-factor authentication for an extra layer of security.
                     </p>
                 </div>
-                <div
-                    onClick={() => setTwoFactorChecked(!twoFactorChecked)}
-                    className={`relative w-[52px] h-[24px] border-[2px] border-[var(--blue-primary)] rounded-[12px] transition-all cursor-pointer flex items-center ${twoFactorChecked ? "bg-[var(--blue-primary)]" : "bg-white"}`}
-                >
+                <div className={`relative w-[52px] h-[24px] border-[2px] border-[var(--blue-primary)] rounded-[12px] transition-all cursor-pointer flex items-center ${twoFactorChecked ? "bg-[var(--blue-primary)]" : "bg-white"}`}>
                     <div className={`absolute transition-all h-[18px] w-[18px] ${twoFactorChecked ? "left-[calc(100%-20px)] bg-white" : "left-[2px] bg-[var(--blue-primary)]"}  rounded-full`} />
                 </div>
             </div>

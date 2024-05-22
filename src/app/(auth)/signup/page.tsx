@@ -4,7 +4,7 @@ type Props = {}
 
 const SignUp = (props: Props) => {
     return (
-        <div>
+        <div className="h-full w-full flex items-center justify-center py-8">
             <SignUpForm />
         </div>
     )

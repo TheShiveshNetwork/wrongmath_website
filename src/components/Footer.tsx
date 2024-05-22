@@ -43,9 +43,11 @@ const Footer = (props: Props) => {
             items: [
                 { title: "contact@justpyqs.com", icon: "/assets/icons/Email.svg", href: "mailto:contact@justpyqs.com" },
                 { title: "+91 9110827904", icon: "/assets/icons/Phone.svg", href: null },
-                { title: `2nd Floor, # 255, 1st Main Road, AKG Coloney, Opp MVJ College, Channasandra Main Road,
+                {
+                    title: `2nd Floor, # 255, 1st Main Road, AKG Coloney, Opp MVJ College, Channasandra Main Road,
                 Kadugodi Post,Bengaluru,
-                560067.`, icon: "/assets/icons/Location_Point.svg", href: null },
+                560067.`, icon: "/assets/icons/Location_Point.svg", href: null
+                },
             ]
         },
     ]
@@ -60,7 +62,7 @@ const Footer = (props: Props) => {
                             width={132}
                             alt="Wrongmath"
                         />
-                        <div className="flex gap-[12px] mt-[32px]">
+                        <div className="hidden md:flex gap-[12px] mt-[32px]">
                             {SocialLinks.map(social => (
                                 <a key={social.image} href={social.link}>
                                     <Image
@@ -75,7 +77,7 @@ const Footer = (props: Props) => {
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-col gap-4 md:flex-row w-full justify-between text-white">
+                <div className="flex flex-col gap-4 md:flex-row w-full justify-between text-white px-[40px] mt-[32px] md:mt-0">
                     {FooterLinks.map((footer, index) => (
                         <div key={`footer-${index}`} className="flex flex-col gap-[16px] max-w-[248px]">
                             <h3 className="text-[24px] font-[600] tracking-[0.01em]">{footer.name}</h3>
@@ -96,13 +98,29 @@ const Footer = (props: Props) => {
                             ))}
                         </div>
                     ))}
+                    <div className="flex md:hidden gap-[12px] mb-[24px]">
+                        {SocialLinks.map(social => (
+                            <a key={social.image} href={social.link}>
+                                <Image
+                                    src={social.image}
+                                    height={24}
+                                    width={24}
+                                    alt={social.link}
+                                    className=" invert-0"
+                                />
+                            </a>
+                        ))}
+                    </div>
+                </div>
+                <div className="flex md:hidden gap-[16px] text-white">
+                    <a href="#">Terms of Service</a> <span className="text-[rgba(186,214,235,1)]">|</span> <a href="#">Privacy Policy</a>
                 </div>
             </div>
             <div className="bg-[rgba(186,214,235,1)] h-[1px]" />
             <div className="flex justify-between text-white">
-                <div>© 2024 JustPYQs - All rights reserved</div>
-                <div className="flex flex-col md:flex-row gap-[16px]">
-                    <a href="#">Terms of Service</a> <span className="text-[rgba(186,214,235,1)] hidden md:block">|</span> <a href="#">Privacy Policy</a>
+                <div className="w-full text-center md:text-left">© 2024 JustPYQs - All rights reserved</div>
+                <div className="hidden md:flex gap-[16px]">
+                    <a href="#">Terms of Service</a> <span className="text-[rgba(186,214,235,1)]">|</span> <a href="#">Privacy Policy</a>
                 </div>
             </div>
         </footer>
