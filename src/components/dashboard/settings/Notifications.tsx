@@ -26,7 +26,7 @@ const Notifications = (props: Props) => {
             <div className="flex flex-col gap-[16px]">
                 <h3 className="text-primary font-[500] text-[18px] leading-[27px] -tracking-[0.02em]">Notification frequency</h3>
                 <div className="flex w-full justify-between items-center">
-                    <div className="max-w-[264px]">
+                    <div className="max-w-[264px] w-full">
                         <div className="text-primary font-[400] text-[16px] leading-[24px]">Immediate</div>
                         <p className="text-primary font-[300] text-[12px] leading-[18px]">
                             Receive notifications as soon as they are available.
@@ -40,7 +40,7 @@ const Notifications = (props: Props) => {
                     </div>
                 </div>
                 <div className="flex w-full justify-between items-center">
-                    <div className="max-w-[264px]">
+                    <div className="max-w-[264px] w-full">
                         <div className="text-primary font-[400] text-[16px] leading-[24px]">Daily Digest</div>
                         <p className="text-primary font-[300] text-[12px] leading-[18px]">
                             Receive notifications as soon as they are available.
@@ -54,7 +54,7 @@ const Notifications = (props: Props) => {
                     </div>
                 </div>
                 <div className="flex w-full justify-between items-center">
-                    <div className="max-w-[264px]">
+                    <div className="max-w-[264px] w-full">
                         <div className="text-primary font-[400] text-[16px] leading-[24px]">Weekly Digest</div>
                         <p className="text-primary font-[300] text-[12px] leading-[18px]">
                             Receive notifications as soon as they are available.

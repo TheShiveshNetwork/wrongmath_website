@@ -21,7 +21,7 @@ const AccountInfo = (props: Props) => {
                 </div>
                 <div className="text-primary box-shadow cursor-pointer rounded-[6px] p-[6px_12px] border-[1px] border-[var(--blue-primary)]">Update</div>
             </div>
-            <div className="box-shadow p-[48px] rounded-[12px]">
+            <div className="box-shadow p-[24px] md:p-[48px] flex flex-col gap-[24px] rounded-[12px] mb-[24px]">
                 <h3 className="text-primary font-[600] text-[24px] leading-[36px] tracking-[0.01em] mb-[24px]">Change User Information</h3>
                 <div>
                     <div className="text-gray font-[600] text-[16px] leading-[24px] tracking-[0.01em] mb-[8px]">Name</div>
