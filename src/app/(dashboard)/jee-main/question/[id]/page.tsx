@@ -38,25 +38,26 @@ const QuestionPage = ({ params }: { params: { id: string } }) => {
                     ))}
                 </div>
             </div>
-            <div className="mt-[45px] bg-whtie box-shadow p-[16px_32px] rounded-[12px] items-center flex justify-between">
+            <div className="mt-[45px] bg-whtie box-shadow p-[16px_24px] md:p-[16px_32px] rounded-[12px] items-center flex justify-between">
                 <div onClick={() => { }} className="btn-primary box-shadow cursor-pointer">Submit</div>
-                <div className="flex gap-[16px]">
-                    <div onClick={() => { }} className="btn-secondary box-shadow flex gap-[5px] cursor-pointer">
+                <div className="flex gap-[8px] md:gap-[16px]">
+                    <div onClick={() => { }} className="btn-secondary box-shadow flex items-center justify-center gap-[5px] w-[109px] md:w-auto text-[14px] md:text-md cursor-pointer">
                         <Image
                             src="/assets/icons/arrow_downward_alt.svg"
                             height={24}
                             width={24}
                             alt="icon"
+                            className="h-[16px]"
                         />
                         Previous
                     </div>
-                    <div onClick={() => { }} className="btn-secondary box-shadow flex gap-[5px] cursor-pointer">
+                    <div onClick={() => { }} className="btn-secondary box-shadow flex items-center justify-center gap-[5px] w-[89px] md:w-auto text-[14px] md:text-md cursor-pointer">
                         <Image
                             src="/assets/icons/arrow_downward_alt.svg"
                             height={24}
                             width={24}
                             alt="icon"
-                            className="rotate-180"
+                            className="rotate-180 h-[16px]"
                         />
                         Next
                     </div>

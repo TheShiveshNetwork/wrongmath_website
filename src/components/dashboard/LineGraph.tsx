@@ -92,7 +92,7 @@ const LineGraph = () => {
                     display: true,
                     text: "No of Days Active",
                     font: {
-                        size: 16,
+                        size: 12,
                         weight: 700,
                     }
                 },
@@ -105,7 +105,7 @@ const LineGraph = () => {
                     color: "white",
                     font: {
                         family: "Nunito",
-                        size: 12,
+                        size: 8,
                     },
                 },
             },
@@ -114,7 +114,7 @@ const LineGraph = () => {
                     display: true,
                     text: "No of Questions Answered",
                     font: {
-                        size: 16,
+                        size: 12,
                         weight: 700,
                     }
                 },
@@ -130,7 +130,7 @@ const LineGraph = () => {
                     stepSize: 50,
                     color: "rgba(0,7,52,1)",
                     font: {
-                        size: 16,
+                        size: 12,
                         weight: 700,
                     },
                 },
@@ -148,17 +148,12 @@ const LineGraph = () => {
         },
     };
 
-    const graphStyle = {
-        minHeight: "400px",
-        width: "100%",
-    };
-
     return (
         <>
-            <div className="hidden md:block" style={graphStyle}>
+            <div className="hidden md:block" style={{ minHeight: "400px", width: "100%" }}>
                 <Line id="home" options={desktopOptions} data={canvasData} />
             </div>
-            <div className="block md:hidden" style={graphStyle}>
+            <div className="block md:hidden" style={{ minHeight: "300px", width: "100%" }}>
                 <Line id="home" options={phoneOptions} data={canvasData} />
             </div>
         </>

@@ -13,7 +13,7 @@ const Dashboard = (props: Props) => {
                 <LineGraph />
             </div>
             <div className="flex flex-row lg:flex-col gap-6">
-                <div className="mt-[24px] py-6 min-h-[158px] flex flex-col lg:flex-row box-shadow w-1/2 lg:w-full items-center justify-center gap-[42px] rounded-[24px]">
+                <div className="mt-[24px] py-6 px-4 min-h-[158px] flex flex-col lg:flex-row box-shadow w-1/2 lg:w-full items-center justify-center gap-[42px] rounded-[24px]">
                     <div className="text-[24px] font-[500] leading-[36px] -tracking-[0.02em] text-center">
                         <span className="text-[rgba(52,78,173,1)] font-[600] text-[44px]">PYQ&apos;s</span><br />Answered
                     </div>
@@ -33,7 +33,7 @@ const Dashboard = (props: Props) => {
                         <span className="text-primary font-[600] text-[32px] lg:text-[44px] leading-[66px]">45/20</span>
                     </div>
                 </div>
-                <div className="mt-[24px] flex flex-col lg:flex-row gap-[24px] w-full">
+                <div className="mt-[24px] flex flex-col lg:flex-row gap-[24px] w-1/2 lg:w-full">
                     <div className="box-shadow lg:w-1/4 h-[170px] w-full lg:min-w-[238px] flex flex-col gap-[16px] items-center justify-center text-center">
                         <h3 className="text-[rgba(52,78,173,1)] max-w-[158px]">question answered in a day(best)</h3>
                         <div className="text-primary font-[600] text-[44px] leading-[66px]">90</div>

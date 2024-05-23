@@ -72,12 +72,14 @@ const Navbar = (props: Props) => {
             {navToggle && (
                 <div className="fixed animate-[sildeInFromTop_0.3s_ease-in-out] py-[10px] w-full bg-[var(--blue-primary)] top-0 left-0 text-white flex flex-col">
                     <div className="flex justify-between px-[25px]">
+                        <Link href={"/dashboard"}>
                         <Image
                             src={"/assets/logo2.svg"}
                             height={48}
                             width={48}
                             alt="menu"
                         />
+                        </Link>
                         <Image
                             src={"/assets/icons/closeX.svg"}
                             height={32}

@@ -16,7 +16,7 @@ const Security = (props: Props) => {
                 className="w-full flex items-center justify-between gap-[8px] cursor-pointer"
                 onClick={() => setTwoFactorChecked(!twoFactorChecked)}
             >
-                <div className="max-w-[274px]">
+                <div className="max-w-[274px] w-full">
                     <h3 className="text-primary font-[600] text-[24px] leading-[36px] tracking-[0.01em]">Two-Factor Authentication (2FA)</h3>
                     <p className="text-primary font-[300] text-[14px]">
                         Enable two-factor authentication for an extra layer of security.

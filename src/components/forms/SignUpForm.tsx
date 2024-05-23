@@ -36,7 +36,9 @@ const SignUpForm = (props: Props) => {
                 <label htmlFor="email_input" className="text-gray-400 font-[400] text-[16px] leading-[24px] pb-[7px]">Username</label>
                 <input className="w-full h-[56px] outline-none border-[1px] border-[rgba(102,102,102,0.35)] rounded-[12px] text-[18px] px-4 mb-[16px]" type="text" id="email_input " name="email" />
                 <label htmlFor="passward" className="text-gray-400 font-[400] text-[16px] leading-[24px] pb-[7px]">Passward</label>
-                <input className="w-full h-[56px] outline-none border-[1px] border-[rgba(102,102,102,0.35)] rounded-[12px] text-[18px] px-4 " type="text" id="passward " name="passward" />
+                <input className="w-full h-[56px] outline-none border-[1px] border-[rgba(102,102,102,0.35)] rounded-[12px] text-[18px] px-4 mb-[16px]" type="password" id="passward " name="passward" />
+                <label htmlFor="passward" className="text-gray-400 font-[400] text-[16px] leading-[24px] pb-[7px]">Confirm Passward</label>
+                <input className="w-full h-[56px] outline-none border-[1px] border-[rgba(102,102,102,0.35)] rounded-[12px] text-[18px] px-4 " type="password" id="confirm_passward " name="confirm_passward" />
             </div>
 
             <button className="bg-[rgba(52,78,173,1)] text-white font-[500] text-[20px] tracking-[0.01em] w-full h-[54px] rounded-[40px] disabled:opacity-[25%] disabled:bg-[rgba(17,17,17,1)]">Sign up</button>

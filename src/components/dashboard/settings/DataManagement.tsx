@@ -8,7 +8,7 @@ const DataManagement = (props: Props) => {
     return (
         <div className="box-shadow p-[24px] md:p-[48px] flex flex-col gap-[24px] rounded-[12px] mb-[24px]">
             <div className="flex justify-between">
-                <div className="max-w-[264px]">
+                <div className="max-w-[264px] w-full">
                     <h3 className="text-primary font-[500] text-[18px] leading-[27px] -tracking-[0.02em]">Data Sharing</h3>
                     <p className="text-primary font-[300] text-[14px] leading-[21px]">
                         Control sharing settings for your data with third-party services or within the platform.
@@ -21,7 +21,7 @@ const DataManagement = (props: Props) => {
                     <div className={`absolute transition-all h-[18px] w-[18px] ${dataSharingChecked ? "left-[calc(100%-20px)] bg-white" : "left-[2px] bg-[var(--blue-primary)]"}  rounded-full`} />
                 </div>
             </div>
-            <div className="max-w-[264px]">
+            <div className="max-w-[264px] w-full">
                 <h3 className="text-primary font-[500] text-[18px] leading-[27px] -tracking-[0.02em]">Delete Account</h3>
                 <p className="text-primary font-[300] text-[14px] leading-[21px]">
                     Permanently delete your account and associated data from the platform.
