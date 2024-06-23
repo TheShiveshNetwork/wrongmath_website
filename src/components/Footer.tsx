@@ -70,7 +70,7 @@ const Footer = (props: Props) => {
                                         height={24}
                                         width={24}
                                         alt={social.link}
-                                        className=" invert-0"
+                                        className="invert-0"
                                     />
                                 </a>
                             ))}
@@ -106,7 +106,7 @@ const Footer = (props: Props) => {
                                     height={24}
                                     width={24}
                                     alt={social.link}
-                                    className=" invert-0"
+                                    className="invert-0"
                                 />
                             </a>
                         ))}
