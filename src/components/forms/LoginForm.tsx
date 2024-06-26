@@ -1,8 +1,48 @@
+"use client";
+
 import Image from "next/image"
 import Link from "next/link"
-type Props = {}
+import { useState } from "react";
+import { toast } from "../ui/use-toast";
+import axios from "axios";
+import { signIn } from "@/auth";
 
-const LoginForm = (props: Props) => {
+const LoginForm = () => {
+    const [error, setError] = useState({ error: "", message: "" });
+    const [user, setUser] = useState({
+        email: "",
+        password: "",
+    });
+
+    const handleChange = (e: any) => {
+        const { name, value } = e.target;
+        setUser((data) => ({
+            ...data,
+            [name]: value,
+        }));
+    }
+
+    const handleSubmit = async () => {
+        try {
+            const response = await axios.post("/api/auth/login", {
+                email: user.email,
+                password: user.password,
+            });
+            if (response.data.success) {
+                toast({
+                    title: "Successful",
+                    description: "Logged in user successfully",
+                });
+            }
+        } catch (error: any) {
+            toast({
+                variant: "destructive",
+                title: "Could not sign in",
+                description: error.message,
+            });
+        }
+    }
+
     return (
         <>
             {/* This part to be displayed on the desktop screens */}
@@ -14,8 +54,8 @@ const LoginForm = (props: Props) => {
                         width={265}
                         alt={"logo"}
                     />
-                    <h3 className="font-[500] text-[32px] text-[rgba(51,51,51,1)] mt-[24px]">Create an account</h3>
-                    <p className="text-[rgba(102,102,102,1)]">Already have an account? Login</p>
+                    <h3 className="font-[500] text-[32px] text-[rgba(51,51,51,1)] mt-[24px]">Login to your account</h3>
+                    <p className="text-[rgba(102,102,102,1)]">Dont have an account? <Link href="/signup">Signup</Link></p>
                 </div>
                 <button className="bg-white font-[400] text-[20px] tracking-[0.05em] w-full h-[54px] rounded-[40px] text-blue border-[1px] border-[rgba(52,78,173,1)] flex items-center justify-center gap-[16px]">
                     <Image
@@ -34,11 +74,30 @@ const LoginForm = (props: Props) => {
                 <p className="text-center font-[200] text-[20px] tracking-[0.01em] text-blue">Enter your email address to create an account.</p>
                 <div>
                     <label htmlFor="email_input" className="block text-gray-400 py-1 font-medium text-[16px] leading-[24px]">Your email</label>
-                    <input className="w-full h-[56px] outline-none border-[1px] border-[rgba(102,102,102,0.35)] rounded-[12px] text-[18px] px-4" type="text" id="email_input " name="email" />
+                    <input
+                        className="w-full h-[56px] outline-none border-[1px] border-[rgba(102,102,102,0.35)] rounded-[12px] text-[18px] px-4"
+                        type="text"
+                        id="email_input"
+                        name="email"
+                        value={user.email}
+                        onChange={handleChange}
+                    />
                     <label htmlFor="password_input" className="block text-gray-400 py-1 font-medium text-[16px] leading-[24px] mt-[16px]">Password</label>
-                    <input className="w-full h-[56px] outline-none border-[1px] border-[rgba(102,102,102,0.35)] rounded-[12px] text-[18px] px-4" type="password" id="password_input " name="password" />
+                    <input
+                        className="w-full h-[56px] outline-none border-[1px] border-[rgba(102,102,102,0.35)] rounded-[12px] text-[18px] px-4"
+                        type="password"
+                        id="password_input"
+                        name="password"
+                        value={user.password}
+                        onChange={handleChange}
+                    />
                 </div>
-                <button className="bg-[rgba(52,78,173,1)] text-white font-[500] text-[20px] tracking-[0.01em] w-full h-[54px] rounded-[40px] disabled:opacity-[25%] disabled:bg-[rgba(17,17,17,1)]">Sign in</button>
+                <button
+                    onClick={handleSubmit}
+                    className="bg-[rgba(52,78,173,1)] text-white font-[500] text-[20px] tracking-[0.01em] w-full h-[54px] rounded-[40px] disabled:opacity-[25%] disabled:bg-[rgba(17,17,17,1)]"
+                >
+                    Sign in
+                </button>
             </div>
             {/* This part to be displayed on the smaller screens */}
             <div className="block md:hidden px-6">

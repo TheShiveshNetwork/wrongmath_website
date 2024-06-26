@@ -3,8 +3,7 @@ import { Schema, model, models } from "mongoose";
 interface IUser {
     email: string;
     username: string;
-    name: string;
-    password: string;
+    hashedPassword: string;
 }
 
 const UserSchema = new Schema<IUser>(
@@ -18,10 +17,7 @@ const UserSchema = new Schema<IUser>(
             type: String,
             unique: true,
         },
-        name: {
-            type: String,
-        },
-        password: {
+        hashedPassword: {
             type: String,
             required: true,
         },
@@ -29,4 +25,5 @@ const UserSchema = new Schema<IUser>(
     { timestamps: true }
 );
 
-export default models.Users || model('Users', UserSchema);
+const User = models.Users || model('Users', UserSchema);
+export default User;

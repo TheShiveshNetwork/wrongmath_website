@@ -15,8 +15,10 @@ const Navbar = (props: Props) => {
     const [loginModalOpen, setLoginModalOpen] = useState<boolean>(false);
 
     useEffect(() => {
-        (signUpModalOpen || navToggle) ? disablePageScroll() : enablePageScroll();
-        (loginModalOpen || navToggle) ? disablePageScroll() : enablePageScroll();
+        if(window.innerWidth > 740) {
+            (signUpModalOpen || navToggle) ? disablePageScroll() : enablePageScroll();
+            (loginModalOpen || navToggle) ? disablePageScroll() : enablePageScroll();
+        }
     }, [signUpModalOpen, loginModalOpen, navToggle])
 
     const NavLinks = [

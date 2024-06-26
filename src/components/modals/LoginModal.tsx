@@ -1,5 +1,5 @@
 "use client"
-import { Dispatch, SetStateAction, useEffect } from "react"
+import { Dispatch, SetStateAction, useEffect, useLayoutEffect } from "react"
 import LoginForm from "../forms/LoginForm"
 import { disablePageScroll, enablePageScroll } from "scroll-lock"
 
@@ -10,7 +10,8 @@ type Props = {
 
 const LoginModal = ({ modalOpen, setModalOpen }: Props) => {
     useEffect(() => {
-        modalOpen ? disablePageScroll() : enablePageScroll();
+        if(window.innerWidth > 740)
+            modalOpen ? disablePageScroll() : enablePageScroll();
     }, [modalOpen])
     return (
         <div

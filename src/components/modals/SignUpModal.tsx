@@ -10,7 +10,8 @@ type Props = {
 
 const SignUpModal = ({ modalOpen, setModalOpen }: Props) => {
     useEffect(() => {
-        modalOpen ? disablePageScroll() : enablePageScroll();
+        if(window.innerWidth > 740)
+            modalOpen ? disablePageScroll() : enablePageScroll();
     }, [modalOpen])
     return (
         <div
