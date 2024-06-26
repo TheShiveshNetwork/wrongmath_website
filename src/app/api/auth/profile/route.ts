@@ -3,7 +3,7 @@ import { ConnectToDB } from '@/utils/db';
 import jwt from 'jsonwebtoken'
 import { NextRequest, NextResponse } from "next/server"
 
-export const getDataFromToken = (request: NextRequest) => {
+const getDataFromToken = (request: NextRequest) => {
     try {
         // Retrieve the token from the cookies
         const token = request.cookies.get("token")?.value || '';
