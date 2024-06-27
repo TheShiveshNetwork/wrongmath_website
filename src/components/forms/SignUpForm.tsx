@@ -5,8 +5,11 @@ import { useState } from "react";
 import { toast } from "../ui/use-toast";
 import axios from "axios";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const SignUpForm = () => {
+    const router = useRouter();
+
     const [error, setError] = useState({ error: "", message: "" });
     const [username, setUsername] = useState<string>("");
     const [email, setEmail] = useState<string>("");
@@ -34,9 +37,10 @@ const SignUpForm = () => {
             });
             if (response.data.success) {
                 toast({
-                    title: "Successfully created user",
-                    description: "Created user successfully",
+                    title: `Welcome, ${username}`,
+                    description: "Your account created successfully!",
                 });
+                router.push("/dashboard");
             }
         } catch (error: any) {
             toast({

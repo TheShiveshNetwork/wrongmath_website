@@ -1,13 +1,27 @@
 "use client"
+import { logout } from "@/actions/logout"
+import axios from "axios"
+import { User } from "next-auth"
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
 
-type Props = {}
+type Props = {
+    currentUser: User | undefined;
+}
 
-const Sidebar = (props: Props) => {
+const Sidebar = ({ currentUser }: Props) => {
     const pathname = usePathname();
+
+    const [currentUserData, setCurrentUserData] = useState({
+        _id: "",
+        image: "",
+        username: "",
+        email: "",
+        createdAt: "",
+        updatedAt: "",
+    });
     const [collapseSidebar, setCollapseSidebar] = useState<boolean>(false);
     const [examsAccordionOpen, setExamsAccordionOpen] = useState(false);
 
@@ -15,6 +29,21 @@ const Sidebar = (props: Props) => {
         if (pathname.split('/')[2] === "question") setCollapseSidebar(true);
         else setCollapseSidebar(false);
     }, [pathname])
+
+    const getUser = async (email:string) => {
+        try {
+            const res = await axios.get(`/api/user/${email}`);
+            setCurrentUserData(res.data);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    useEffect(() => {
+        if (currentUser && currentUser.email) {
+            getUser(currentUser.email);
+        }
+    }, [currentUser])
 
     return (
         <div className={`${collapseSidebar ? "w-[103px]" : "w-[280px]"} sticky top-[42px] 
@@ -30,13 +59,15 @@ const Sidebar = (props: Props) => {
             </Link>
             <div className="flex flex-col items-center mt-[66px] w-full h-full">
                 <Image
-                    src={"/assets/temp/profine_pic.svg"}
+                    src={currentUserData?.image || "/assets/temp/profine_pic.svg"}
                     height={collapseSidebar ? 42 : 96}
                     width={collapseSidebar ? 42 : 96}
                     alt="logo"
                     className={collapseSidebar ? "rounded-[10px] h-[42px]" : "rounded-[10px_0px_0px_0px]"}
                 />
-                <h2 className={`font-[500] ${collapseSidebar ? "text-[16px]" : "text-[24px] mt-[15px]"} leading-[36px] -tracking-[0.02em]`}>Gaurav</h2>
+                <h2 className={`font-[500] ${collapseSidebar ? "text-[16px]" : "text-[24px] mt-[15px]"} leading-[36px] -tracking-[0.02em]`}>
+                    {currentUserData.username.length > 10 ? currentUserData.username.slice(0,9) + "..." : currentUserData.username}
+                </h2>
                 <div className="flex flex-col items-center w-full mt-[45px]">
                     <Link
                         href={"/dashboard"}
@@ -92,7 +123,9 @@ const Sidebar = (props: Props) => {
                         {!collapseSidebar && "Settings"}
                     </Link>
                 </div>
-                <div className="flex gap-[4px] h-full items-end font-[500] text-[20px] leading-[30px] tracking-[0.01] cursor-pointer">
+                <div
+                    onClick={logout}
+                    className="flex gap-[4px] h-full items-end font-[500] text-[20px] leading-[30px] tracking-[0.01] cursor-pointer">
                     <Image
                         src={"/assets/dashboard/icons/logout.svg"}
                         height={32}

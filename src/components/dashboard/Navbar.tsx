@@ -1,14 +1,17 @@
 "use client"
 
+import { User } from "next-auth"
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
 import { disablePageScroll, enablePageScroll } from "scroll-lock"
 
-type Props = {}
+type Props = {
+    currentUser: User | undefined;
+}
 
-const Navbar = (props: Props) => {
+const Navbar = ({ currentUser }: Props) => {
     const pathname = usePathname();
     const [navToggle, setNavToggle] = useState<boolean>(false);
     const [examsAccordionOpen, setExamsAccordionOpen] = useState<boolean>(false);

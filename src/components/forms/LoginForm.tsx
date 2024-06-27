@@ -5,7 +5,7 @@ import Link from "next/link"
 import { useState } from "react";
 import { toast } from "../ui/use-toast";
 import axios from "axios";
-import { signIn } from "@/auth";
+import { login } from "@/actions/login";
 
 const LoginForm = () => {
     const [error, setError] = useState({ error: "", message: "" });
@@ -24,16 +24,14 @@ const LoginForm = () => {
 
     const handleSubmit = async () => {
         try {
-            const response = await axios.post("/api/auth/login", {
-                email: user.email,
-                password: user.password,
-            });
-            if (response.data.success) {
-                toast({
-                    title: "Successful",
-                    description: "Logged in user successfully",
-                });
-            }
+            const response = await login(user);
+            console.log(response);
+            // if (response.data.success) {
+            //     toast({
+            //         title: "Successful",
+            //         description: "Logged in user successfully",
+            //     });
+            // }
         } catch (error: any) {
             toast({
                 variant: "destructive",

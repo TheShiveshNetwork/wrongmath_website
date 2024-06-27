@@ -2,6 +2,8 @@ import User from "@/models/User";
 import { ConnectToDB } from "@/utils/db";
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcrypt";
+import { signIn } from "@/auth";
+import { AuthError } from "next-auth";
 
 ConnectToDB();
 
@@ -30,6 +32,16 @@ export async function POST(request:NextRequest) {
 
         // create new user
         await newUser.save();
+
+        try {
+            await signIn("credentials", {
+                email,
+                password,
+                redirect: false,
+            });
+        } catch (error) {
+            throw error;
+        }
 
         return NextResponse.json({
             message: "User created successfully",

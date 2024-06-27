@@ -3,8 +3,10 @@ import bcrypt from "bcrypt";
 import User from "@/models/User";
 import NextAuth from "next-auth";
 import { ConnectToDB } from "./utils/db";
+import { authConfig } from "./auth.config";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
+    ...authConfig,
     providers: [
         Credentials({
             credentials: {

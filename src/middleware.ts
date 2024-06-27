@@ -1,35 +1,43 @@
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
+import NextAuth from 'next-auth';
+import { authConfig } from './auth.config';
 
-export function middleware(request: NextRequest) {
-    const path = request.nextUrl.pathname
+const { auth } = NextAuth(authConfig);
 
-    // Define paths that are considered public (accessible without a token)
-    const isPublicPath = path === '/' || path === '/login' || path === '/signup';
+const DEFAULT_LOGIN_REDIRECT = "/dashboard";
 
-    // Get the token from the cookies
-    const token = request.cookies.get('token')?.value || '';
+const publicRoutes = [
+    "/"
+];
 
-    // Redirect logic based on the path and token presence
-    if (isPublicPath && token) {
-        // If trying to access a public path with a token, redirect to the home page
-        return NextResponse.redirect(new URL('/', request.nextUrl))
+const authRoutes = [
+    "/login",
+    "/register",
+];
+
+const apiAuthPrefix = "/api/auth";
+
+export default auth((request):any => {
+    const { nextUrl } = request;
+    const isLoggedIn = !!request.auth;
+    const isApiAuthRoute = nextUrl.pathname.startsWith(apiAuthPrefix);
+    const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
+    const isAuthRoute = authRoutes.includes(nextUrl.pathname);
+
+    if (isApiAuthRoute) {
+        return null;
     }
-
-    // If trying to access a protected path without a token, redirect to the login page
-    if (!isPublicPath && !token) {
-        return NextResponse.redirect(new URL('/login', request.nextUrl))
+    if (isAuthRoute) {
+        if (isLoggedIn) {
+            return Response.redirect(new URL(DEFAULT_LOGIN_REDIRECT, nextUrl));
+        }
+        return null;
     }
+    if (!isLoggedIn && !isPublicRoute) {
+        return Response.redirect(new URL("/login", nextUrl));
+    }
+    return null;
+});
 
-}
-
-// It specifies the paths for which this middleware should be executed. 
-// In this case, it's applied to '/', '/profile', '/login', and '/signup'.
 export const config = {
-    matcher: [
-        '/dashboard',
-        '/settings',
-        '/login',
-        '/signup',
-    ]
+    matcher: ['/((?!.+\\.[\\w]+$|_next).*)', '/', '/(api|trpc)(.*)'],
 }
